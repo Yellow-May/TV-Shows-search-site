@@ -80,7 +80,7 @@ matchList.addEventListener("click", (e) => expandShow(e));
 search.addEventListener("input", () => searchShows(search.value));
 
 async function searchShows(value) {
-  const res = await fetch(`http://api.tvmaze.com/search/shows?q=${value}`);
+  const res = await fetch(`https://api.tvmaze.com/search/shows?q=${value}`);
   const data = await res.json();
 
   viewShows(data);
@@ -91,7 +91,7 @@ async function searchShows(value) {
 }
 
 async function searchId(id) {
-  const res = await fetch(`http://api.tvmaze.com/shows/${id}`);
+  const res = await fetch(`https://api.tvmaze.com/shows/${id}`);
   const data = await res.json();
 
   viewModal(data);
