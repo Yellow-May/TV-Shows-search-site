@@ -25,6 +25,7 @@ const viewShows = (shows) => {
     })
     .join("");
 
+  matchList.style.display = "flex";
   matchList.innerHTML = showHtml;
 };
 
@@ -55,6 +56,9 @@ const viewModal = (show) => {
             show.rating.average !== null ? show.rating.average : "Unavailable"
           }</p>
           <p>Status: ${show.status}</p>
+          <p>Official Site: <a href="${
+            show.officialSite
+          }" target="_blank">Goto Official Site</a></p>
       </div>
       <div class="summary">
           <h2>Summary</h2>
@@ -85,8 +89,9 @@ async function searchShows(value) {
 
   viewShows(data);
 
-  if (value.lenght === 0) {
+  if (value === "") {
     matchList.innerHTML = "";
+    matchList.style.display = "none";
   }
 }
 
